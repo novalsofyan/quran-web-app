@@ -49,14 +49,14 @@
   }
 
   .font-size-text-biasa {
-    @apply text-[clamp(0.8rem,2vw,1.5rem)];
+    @apply text-[clamp(0.95rem,2vw,1.5rem)];
   }
 
   .font-size-credit-img {
-    @apply text-[clamp(0.1rem,2vw,1rem)];
+    @apply text-[clamp(0.7rem,2vw,1rem)];
   }
 
   .font-size-footer {
-    @apply text-[clamp(0.5rem,2vw,1rem)];
+    @apply text-[clamp(0.7rem,2vw,1rem)];
   }
 }

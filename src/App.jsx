@@ -18,7 +18,7 @@ function App() {
 
       <Outlet />
 
-      <footer className="w-full bg-gray-800 text-white font-size-footer p-4 text-center grow-0 shrink-0">
+      <footer className="w-full font-size-footer bg-gray-800 text-white p-4 text-center grow-0 shrink-0">
         <p>&copy; {year} DreamWeavers Devs. All rights reserved.</p>
       </footer>
     </div>
