@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-poppins);
+}
+
+@layer components {
+  /* Real Components */
+  .button {
+    @apply text-base bg-green-500 hover:bg-green-700 text-white font-bold px-4 py-2 mt-4 rounded-full cursor-pointer transition-colors duration-300;
+  }
+
+  .link-text {
+    @apply text-green-500 hover:text-green-700 transition-colors duration-300;
+  }
+  /* Elements */
+  .nav-wrapper {
+    @apply fixed top-0 w-screen flex justify-center items-center px-4 bg-green-700 h-16;
+  }
+
+  .navbar-container {
+    @apply w-full h-full max-w-[1920px] flex items-center;
+  }
+
+  .hamburger {
+    @apply w-8 h-6 relative;
+  }
+
+  .hamburger span {
+    position: absolute;
+    background-color: white;
+    height: 4px;
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  .hamburger span:first-child {
+    top: 0%;
+  }
+
+  .hamburger span:nth-child(2) {
+    top: 42%;
+  }
+
+  .hamburger span:last-child {
+    bottom: 0%;
+  }
+
+  .font-size-navbar {
+    @apply text-[clamp(1.1rem,2vw,1.5rem)];
+  }
+
+  .font-size-text-biasa {
+    @apply text-[clamp(0.95rem,2vw,1.5rem)];
+  }
+
+  .font-credit-img {
+    @apply text-[clamp(0.8rem,2vw,1rem)] text-center text-gray-500 mt-2;
+  }
+
+  .font-size-footer {
+    @apply text-[clamp(0.7rem,2vw,1rem)];
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
