@@ -10,8 +10,11 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Qur'an Web - Beranda",
-  description: "Qur'an Web by DreamWeavers Devs ✨",
+  title: {
+    template: "%s | Qur'an Web",
+    default: "Qur'an Web",
+  },
+  description: "Qur'an Web by DreamWeavers Devs ✨.",
 };
 
 export default function RootLayout({

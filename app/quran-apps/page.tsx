@@ -3,8 +3,7 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Qur'an Web - App",
-  description: "Qur'an Web App by DreamWeavers Devs ✨",
+  title: "App",
 };
 
 export default function Page() {
