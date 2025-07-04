@@ -30,14 +30,26 @@ export default function NavbarComponents() {
         </div>
 
         <div onClick={toggleMenu} className="hamburger w-8 h-6 relative cursor-pointer md:hidden">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span
+            className={`
+            ${isMenuOpen ? "top-[42%] transform-gpu rotate-45" : "top-0"} transition-all duration-300
+            `}
+          ></span>
+          <span
+            className={`
+            ${isMenuOpen ? "top-[42%] opacity-0" : "top-[42%]"} transition-all duration-300
+            `}
+          ></span>
+          <span
+            className={`
+            ${isMenuOpen ? "top-[42%] transform-gpu rotate-[-45deg]" : "bottom-0"} transition-all duration-300
+            `}
+          ></span>
         </div>
 
         <ul
           className={`
-            nav-menu absolute flex flex-col gap-5 top-16 px-4 py-4 bg-green-700 h-[calc(100vh-64px)] w-4/5 transition-all duration-300 z-50
+            nav-menu absolute flex flex-col gap-5 top-16 px-4 py-4 bg-green-700 h-[calc(100vh-64px)] w-4/5 transition-all duration-300 z-50 items-center
             md:static md:flex-row md:top-0 md:right-0 md:h-auto md:w-auto md:px-0 md:py-0
             ${isMenuOpen ? "right-0" : "right-[-100%]"}
           `}

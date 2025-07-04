@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import React from "react";
 
@@ -10,7 +9,7 @@ interface IInput {
 export default function ButtonLink({ input, href }: IInput) {
   return (
     <Link href={href}>
-      <button className="button">{input}</button>
+      <button className="button select-none">{input}</button>
     </Link>
   );
 }

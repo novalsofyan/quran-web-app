@@ -50,18 +50,6 @@
     width: 100%;
   }
 
-  .hamburger span:first-child {
-    top: 0%;
-  }
-
-  .hamburger span:nth-child(2) {
-    top: 42%;
-  }
-
-  .hamburger span:last-child {
-    bottom: 0%;
-  }
-
   .nav-menu li a {
     transition: color ease-in-out 0.2s;
   }

@@ -16,7 +16,8 @@ export default function Home() {
             width={300}
             height={300}
             priority
-            className="w-[230px] h-[auto] md:w-[300px] md:h-[auto] lg:w-[400px] lg:h-[auto]"
+            className="w-[230px] h-[auto] md:w-[300px] md:h-[auto] lg:w-[400px] lg:h-[auto] select-none"
+            draggable="false"
           />
           <p className="font-credit-img">
             Logo &quot;Quran Kareem&quot; by{" "}
