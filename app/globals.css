@@ -41,17 +41,6 @@
   }
 
   /* Elements */
-  .nav-wrapper {
-    @apply fixed top-0 w-screen flex justify-center items-center px-4 bg-green-700 h-16;
-  }
-
-  .navbar-container {
-    @apply w-full h-full max-w-[1920px] flex items-center;
-  }
-
-  .hamburger {
-    @apply w-8 h-6 relative;
-  }
 
   .hamburger span {
     position: absolute;
@@ -71,6 +60,15 @@
 
   .hamburger span:last-child {
     bottom: 0%;
+  }
+
+  .nav-menu li a {
+    transition: color ease-in-out 0.2s;
+  }
+
+  .nav-menu li a:hover {
+    cursor: pointer;
+    color: #ffbf00;
   }
 }
 

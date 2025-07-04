@@ -4,9 +4,12 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="main-wrapper pt-16 flex justify-center items-center h-screen box-border">
-      <div className="main max-w-[1920px] flex flex-col justify-center items-center gap-4 md:flex-row md:w-[90%] md:gap-0">
-        <div className="hero-img flex flex-col items-center md:justify-center md:w-[80%]">
+    // main-wrapper
+    <div className="pt-16 flex justify-center items-center h-screen box-border">
+      {/* main */}
+      <div className="max-w-[1920px] flex flex-col justify-center items-center gap-4 md:flex-row md:w-[90%] md:gap-0">
+        {/* hero-img */}
+        <div className="flex flex-col items-center md:justify-center md:w-[80%]">
           <Image
             src="/img/quran-logo.svg"
             alt="Quran Logo"
@@ -23,7 +26,8 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="hero-desc flex flex-col items-center font-size-text-biasa text-justify px-4">
+        {/* hero-desc */}
+        <div className="flex flex-col items-center font-size-text-biasa text-justify px-4">
           <p>Temukan kemudahan membaca dan memahami Al-Quran. Aplikasi ini hadir untuk membantumu menjelajahi ayat-ayat suci, di mana pun dan kapan pun kamu inginkan.</p>
           <ButtonLink input="Mulai Baca" href={"/quran-apps"} />
         </div>

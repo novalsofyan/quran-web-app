@@ -1,4 +1,3 @@
-import React from "react";
 import ButtonLink from "@/components/ui/ButtonLink";
 import type { Metadata } from "next";
 
