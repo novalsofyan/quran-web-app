@@ -23,7 +23,7 @@ export default function NavbarComponents() {
   }, [isMenuOpen]);
 
   return (
-    <nav className="font-size-navbar text-white font-semibold fixed top-0 w-screen flex justify-center items-center px-4 bg-green-700 h-16 select-none">
+    <nav className="font-size-navbar text-white font-semibold fixed top-0 w-screen flex justify-center items-center px-4 bg-green-700 h-16 select-none grow-0 shrink-0">
       <div className="w-full h-full max-w-[1920px] flex justify-between items-center">
         <div>
           <p>Qur&apos;an Web App</p>
@@ -55,17 +55,38 @@ export default function NavbarComponents() {
           `}
         >
           <li>
-            <Link onClick={toggleMenu} href={"/"}>
+            <Link
+              onClick={() => {
+                if (window.innerWidth < 768) {
+                  toggleMenu();
+                }
+              }}
+              href={"/"}
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link onClick={toggleMenu} href={"/quran-apps"}>
+            <Link
+              onClick={() => {
+                if (window.innerWidth < 768) {
+                  toggleMenu();
+                }
+              }}
+              href={"/quran-apps"}
+            >
               App
             </Link>
           </li>
           <li>
-            <Link onClick={toggleMenu} href={"/about"}>
+            <Link
+              onClick={() => {
+                if (window.innerWidth < 768) {
+                  toggleMenu();
+                }
+              }}
+              href={"/about"}
+            >
               Tentang
             </Link>
           </li>

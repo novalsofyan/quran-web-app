@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col justify-center items-center pt-16 min-h-screen">
+    <div className="flex flex-col justify-center items-center pt-16 grow">
       <p className="font-size-text-biasa">Soon</p>
       <ButtonLink input="Menuju ke Halaman Utama" href="/"></ButtonLink>
     </div>
