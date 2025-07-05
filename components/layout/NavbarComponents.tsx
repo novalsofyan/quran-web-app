@@ -49,8 +49,8 @@ export default function NavbarComponents() {
 
         <ul
           className={`
-            nav-menu absolute flex flex-col gap-5 top-16 px-4 py-4 bg-green-700 h-[calc(100vh-64px)] w-4/5 transition-all duration-300 z-50 items-center
-            md:static md:flex-row md:top-0 md:right-0 md:h-auto md:w-auto md:px-0 md:py-0
+            nav-menu absolute flex flex-col gap-5 top-16 px-4 py-4 bg-green-700 h-fit w-1/3 transition-all duration-300 z-50 rounded-bl-md shadow-md
+            md:static md:flex-row md:top-0 md:right-0 md:h-auto md:w-auto md:px-0 md:py-0 md:shadow-none
             ${isMenuOpen ? "right-0" : "right-[-100%]"}
           `}
         >
