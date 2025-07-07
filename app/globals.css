@@ -25,19 +25,32 @@
   /* Font Component */
 
   .font-size-navbar {
-    @apply text-[clamp(1.1rem,2vw,1.5rem)];
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
   }
 
-  .font-size-text-biasa {
-    @apply text-[clamp(0.95rem,2vw,1.5rem)];
+  .font-size-text-lg {
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
+  }
+
+  .font-size-text-hero {
+    font-size: clamp(0.95rem, 2vw, 1.5rem);
+  }
+
+  .font-size-text-md {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+  }
+
+  .font-size-text-sm {
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
   }
 
   .font-credit-img {
-    @apply text-[clamp(0.8rem,2vw,1rem)] text-center text-gray-500 mt-2;
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    @apply text-center text-gray-500 mt-2;
   }
 
   .font-size-footer {
-    @apply text-[clamp(0.7rem,2vw,1rem)];
+    font-size: clamp(0.7rem, 1vw, 1rem);
   }
 
   /* Elements */
