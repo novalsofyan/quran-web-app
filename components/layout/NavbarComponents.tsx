@@ -23,7 +23,7 @@ export default function NavbarComponents() {
   }, [isMenuOpen]);
 
   return (
-    <nav className="font-size-navbar text-white font-semibold fixed top-0 w-screen flex justify-center items-center px-4 bg-green-700 h-16 select-none grow-0 shrink-0">
+    <nav className="font-size-navbar text-white font-semibold fixed top-0 w-screen flex justify-center items-center px-10 bg-green-700 h-16 select-none grow-0 shrink-0 z-50">
       <div className="w-full h-full max-w-[1920px] flex justify-between items-center">
         <div>
           <p>Qur&apos;an Web App</p>
@@ -49,7 +49,7 @@ export default function NavbarComponents() {
 
         <ul
           className={`
-            nav-menu absolute flex flex-col gap-5 top-16 px-4 py-4 bg-green-700 h-fit w-1/3 transition-all duration-300 z-50 rounded-bl-md shadow-md
+            nav-menu absolute flex flex-col gap-5 top-16 px-10 py-4 bg-green-700 h-fit w-full transition-all duration-300 z-50 rounded-b-lg shadow-md
             md:static md:flex-row md:top-0 md:right-0 md:h-auto md:w-auto md:px-0 md:py-0 md:shadow-none
             ${isMenuOpen ? "right-0" : "right-[-100%]"}
           `}
