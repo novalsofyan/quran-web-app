@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Qur'an Web",
     default: "Qur'an Web",
   },
-  description: "Qur'an Web by DreamWeavers Devs ✨.",
+  description: "Qur'an Web by Lucid Dreamworks Devs ✨.",
 };
 
 export default function RootLayout({

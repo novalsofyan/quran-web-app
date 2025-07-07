@@ -5,7 +5,7 @@
 
 ## 📖 Description
 
-This project was developed with the purpose of learning React.Js. Why choose the Qur'an as its focus? Because the developer (currently just myself), under the name DreamWeavers Devs, has a vision to create something beneficial for humanity, especially for those who share the same faith as the current developer (Islam).
+This project was developed with the purpose of learning React.Js. Why choose the Qur'an as its focus? Because the developer (currently just myself), under the name Lucid Dreamworks Devs, has a vision to create something beneficial for humanity, especially for those who share the same faith as the current developer (Islam).
 
 ## 🚀 The technology used
 
@@ -13,7 +13,7 @@ This project was developed with the purpose of learning React.Js. Why choose the
 - React.Js
 - Tailwind CSS
 
-## ✨ DreamWeavers Devs
+## ✨ Lucid Dreamworks Devs
 
 - **Noval S (Nosora)**
   - Email: [novalsofyan.business@gmail.com](mailto:novalsofyan.business@gmail.com)
