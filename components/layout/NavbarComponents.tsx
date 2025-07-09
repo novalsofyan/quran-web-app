@@ -73,7 +73,8 @@ export default function NavbarComponents() {
                   toggleMenu();
                 }
               }}
-              href={"/quran-apps"}
+              href={"/quran-apps?page=1"}
+              prefetch={false}
             >
               App
             </Link>
