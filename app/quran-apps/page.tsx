@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import FetchSurat from "@/components/apiComp/FetchSurat";
-import TypeSurat from "@/components/apiComp/InterfaceFetchSurat";
+import FetchAllSurat from "@/components/apiComp/FetchAllSurat";
+import TypeDataAllSurat from "@/components/apiComp/InterfaceFetchAllSurat";
 import parse from "html-react-parser";
 import Pagination from "@/components/ui/Pagination";
+import ButtonLink from "@/components/ui/ButtonLink";
 
 // Metadata untuk halaman
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 // Ambil seluruh data surat dari API
-const dataSuratLengkap: TypeSurat = await FetchSurat();
+const dataSuratLengkap: TypeDataAllSurat = await FetchAllSurat();
 const daftarSurat = dataSuratLengkap.data;
 
 // Konstanta untuk kebutuhan pagination
@@ -25,7 +26,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
   // Ambil parameter ?page= dari URL, defaultnya "1"
   let halamanAktif = parseInt(typeof parameterURL.page === "string" ? parameterURL.page : "1");
 
-  // Validasi input halaman (biar menghindari angka negatif, NaN, atau melebihi total halaman)
+  // Validasi biar menghindari user iseng
   if (isNaN(halamanAktif) || halamanAktif < 1) {
     halamanAktif = 1;
   } else if (halamanAktif > TOTAL_HALAMAN) {
@@ -46,7 +47,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
 
       {/* Render surat-surat buat halaman sekarang */}
       {suratUntukHalamanIni.map((surat) => (
-        <div key={surat.nomor} className="card-surat w-4/5 max-w-[700px] p-4 mt-4 bg-white shadow-md rounded-md border border-gray-200">
+        <div key={surat.nomor} className="card-surat flex flex-col w-4/5 max-w-[700px] p-4 mt-4 bg-white shadow-md rounded-md border border-gray-200">
           <h2 className="font-size-text-lg font-semibold mb-2 text-center">
             {surat.nomor}. {surat.namaLatin}
           </h2>
@@ -54,7 +55,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
           <p>Arti: {surat.arti}</p>
           <p>Jumlah Ayat: {surat.jumlahAyat}</p>
           <p>Tempat Turun: {surat.tempatTurun}</p>
-          <p className="font-size-text-sm text-gray-600 mt-2">{parse(surat.deskripsi)}</p>
+          <p className="font-size-text-sm text-gray-600 mt-2 mb-2">{parse(surat.deskripsi)}</p>
+          <ButtonLink input="📖 Baca Surat" href={`quran-apps/${surat.nomor}`} isSelfCentered></ButtonLink>
         </div>
       ))}
 

@@ -1,7 +1,7 @@
 # Qur'an Web App
 
-![Badge Status Proyek](https://img.shields.io/badge/Status-Incomplete-orange?style=flat-square)
-![Badge Lisensi](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![Status Proyek](https://img.shields.io/badge/Status-Beta-green?style=flat-square)
+![Badge Lisensi](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
 ## 📖 Description
 
@@ -9,9 +9,11 @@ This project was developed with the purpose of learning React.Js. Why choose the
 
 ## 🚀 The technology used
 
-- Next.Js
-- React.Js
+- React + Next.js
+- TypeScript
 - Tailwind CSS
+- Qur'an Ayah font: LPMQ Isep Misbah
+- API from [https://equran.id/apidev/v2](https://equran.id/apidev/v2)
 
 ## ✨ Lucid Dreamworks Devs
 

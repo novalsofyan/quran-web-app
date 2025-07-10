@@ -25,8 +25,10 @@ export default function Hero() {
       </div>
       {/* hero-desc */}
       <div className="flex flex-col items-center font-size-text-hero text-justify px-4">
-        <p>Temukan kemudahan membaca dan memahami Al-Quran. Aplikasi ini hadir untuk membantumu menjelajahi ayat-ayat suci, di mana pun dan kapan pun kamu inginkan.</p>
-        <ButtonLink input="Mulai Baca" href={"/quran-apps?page=1"} />
+        <p className="mb-4">
+          Temukan kemudahan membaca dan memahami Al-Quran. Aplikasi ini hadir untuk membantumu menjelajahi ayat-ayat suci, di mana pun dan kapan pun kamu inginkan.
+        </p>
+        <ButtonLink input="Mulai Baca" href={"/quran-apps?page=1"} isSelfCentered />
       </div>
     </div>
   );

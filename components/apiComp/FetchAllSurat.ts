@@ -1,5 +1,5 @@
-export default async function FetchSurat(nomorSurat: number | string) {
-  const URL = `${process.env.API_SURAT}/${nomorSurat}`;
+export default async function FetchAllSurat() {
+  const URL = process.env.API_SURAT;
   if (!URL) throw new Error("URL tidak ada di environment");
 
   try {
@@ -7,6 +7,6 @@ export default async function FetchSurat(nomorSurat: number | string) {
     if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
     return await res.json();
   } catch (err) {
-    throw new Error(`Gagal fetch surat: ${err}`);
+    throw new Error(`Gagal fetch semua surat: ${err}`);
   }
 }

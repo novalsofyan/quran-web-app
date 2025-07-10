@@ -1,15 +1,16 @@
 import Link from "next/link";
-import React from "react";
 
 interface IInput {
   input: string;
   href: string;
+  isSelfCentered?: boolean;
+  isBlank?: boolean;
 }
 
-export default function ButtonLink({ input, href }: IInput) {
+export default function ButtonLink({ input, href, isSelfCentered, isBlank }: IInput) {
   return (
-    <Link href={href}>
-      <button className="button select-none">{input}</button>
+    <Link className={`${isSelfCentered ? "self-center" : "self-start"}`} href={href} target={isBlank ? "_blank" : "_self"} rel="noopener noreferrer">
+      <button className="button m-0 select-none">{input}</button>
     </Link>
   );
 }
