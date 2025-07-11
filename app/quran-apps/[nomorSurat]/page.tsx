@@ -1,3 +1,16 @@
+// Generate SSG
+
+const halamanSSG: { halamanNoSurat: string }[] = [];
+
+for (let i = 1; i <= 114; i++) {
+  halamanSSG.push({ halamanNoSurat: String(i) });
+}
+
+export async function generateStaticParams() {
+  return halamanSSG;
+}
+
+// Server Side
 import FetchSurat from "@/components/apiComp/FetchSurat";
 import TypeSurat from "@/components/apiComp/InterfaceFetchSurat";
 import FetchAllSurat from "@/components/apiComp/FetchAllSurat";
