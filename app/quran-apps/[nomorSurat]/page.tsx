@@ -1,14 +1,14 @@
 // Generate SSG
 
-const halamanSSG: { halamanNoSurat: string }[] = [];
+// const halamanSSG: { halamanNoSurat: string }[] = [];
 
-for (let i = 1; i <= 114; i++) {
-  halamanSSG.push({ halamanNoSurat: String(i) });
-}
+// for (let i = 1; i <= 114; i++) {
+//   halamanSSG.push({ halamanNoSurat: String(i) });
+// }
 
-export async function generateStaticParams() {
-  return halamanSSG;
-}
+// export async function generateStaticParams() {
+//   return halamanSSG;
+// }
 
 // Server Side
 import FetchSurat from "@/components/apiComp/FetchSurat";
@@ -30,7 +30,11 @@ const fontAyah = localFont({
 });
 
 // Halaman detail surat berdasarkan params (url)
-export default async function BacaSurat({ params }: { params: Promise<{ nomorSurat: string }> }) {
+export default async function BacaSurat({
+  params,
+}: {
+  params: Promise<{ nomorSurat: string }>;
+}) {
   const parameterSurat = await params;
   const nomorSuratDariURL = parameterSurat.nomorSurat;
 
@@ -42,7 +46,11 @@ export default async function BacaSurat({ params }: { params: Promise<{ nomorSur
   const TOTAL_SURAT = dataSuratSemua.data.length;
 
   // Cek apakah bukan angka, atau kurang dari 1, atau lebih dari total surat dinamis
-  if (isNaN(nomorSuratParsed) || nomorSuratParsed < 1 || nomorSuratParsed > TOTAL_SURAT) {
+  if (
+    isNaN(nomorSuratParsed) ||
+    nomorSuratParsed < 1 ||
+    nomorSuratParsed > TOTAL_SURAT
+  ) {
     redirect("/quran-apps");
   }
 
@@ -59,7 +67,8 @@ export default async function BacaSurat({ params }: { params: Promise<{ nomorSur
     <div className="container flex flex-col items-center pt-16 mt-4 mb-4 grow self-center">
       {/* Judul surat */}
       <h1 className="text-3xl md:text-5xl pb-4 w-full text-center">
-        {surat.namaLatin} | <span className={fontAyah.className}>{surat.nama}</span>
+        {surat.namaLatin} |{" "}
+        <span className={fontAyah.className}>{surat.nama}</span>
         <br />
         <br />
         {surat.jumlahAyat} Ayat
@@ -71,12 +80,19 @@ export default async function BacaSurat({ params }: { params: Promise<{ nomorSur
         {surat.ayat.map((ayat) => (
           <div key={ayat.nomorAyat} className="p-4 border-t border-gray-400">
             <div className="flex items-start">
-              <p className="nomor-ayat text-gray-500 text-md mr-2 mt-2 flex-shrink-0">{ayat.nomorAyat}.</p>
-              <p className={`${fontAyah.className} antialiased text-3xl md:text-5xl leading-24 md:leading-36 flex-grow text-right`} dir="rtl">
+              <p className="nomor-ayat text-gray-500 text-md mr-2 mt-2 flex-shrink-0">
+                {ayat.nomorAyat}.
+              </p>
+              <p
+                className={`${fontAyah.className} antialiased text-3xl md:text-5xl leading-24 md:leading-36 flex-grow text-right`}
+                dir="rtl"
+              >
                 {ayat.teksArab}
               </p>
             </div>
-            <p className="mb-4 text-base text-green-700 md:text-xl">{ayat.teksLatin}</p>
+            <p className="mb-4 text-base text-green-700 md:text-xl">
+              {ayat.teksLatin}
+            </p>
             <p className="text-base md:text-xl">{ayat.teksIndonesia}</p>
           </div>
         ))}
