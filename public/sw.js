@@ -1,6 +1,6 @@
 const CACHE_NAME = "quran-app-v1";
 
-const urlsToCache = ["/", "/offline", "/manifest.json"];
+const urlsToCache = ["/", "/manifest.json"];
 
 // Install
 self.addEventListener("install", (event) => {
@@ -33,12 +33,39 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip kalo bukan same origin atau bukan GET
-  if (url.origin !== self.location.origin || request.method !== "GET") {
+  // Skip kalo bukan GET
+  if (request.method !== "GET") {
     return;
   }
 
-  // Skip API calls
+  // Cache EXTERNAL API (equran.id/api/v2/surat)
+  if (
+    url.hostname === "equran.id" &&
+    url.pathname.startsWith("/api/v2/surat")
+  ) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response.status === 200) {
+            const responseToCache = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, responseToCache);
+            });
+          }
+          return response;
+        })
+        .catch(() => {
+          return caches.match(request);
+        }),
+    );
+    return;
+  }
+
+  // Cache INTERNAL pages (Next.js)
+  if (url.origin !== self.location.origin) {
+    return;
+  }
+
   if (url.pathname.startsWith("/api/")) {
     return;
   }
@@ -55,14 +82,7 @@ self.addEventListener("fetch", (event) => {
         return response;
       })
       .catch(() => {
-        return caches.match(request).then((cachedResponse) => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-          if (request.destination === "document") {
-            return caches.match("/offline");
-          }
-        });
+        return caches.match(request);
       }),
   );
 });
