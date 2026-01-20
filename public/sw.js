@@ -5,26 +5,30 @@ const urlsToCache = ["/", "/manifest.json"];
 // Install
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache);
-    }),
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      await cache.addAll(urlsToCache);
+    })(),
   );
+
   self.skipWaiting();
 });
 
 // Activate
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
+    (async () => {
+      const cacheNames = await caches.keys();
+      await Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
             return caches.delete(cacheName);
           }
         }),
       );
-    }),
+    })(),
   );
+
   self.clients.claim();
 });
 
@@ -44,20 +48,22 @@ self.addEventListener("fetch", (event) => {
     url.pathname.startsWith("/api/v2/surat")
   ) {
     event.respondWith(
-      fetch(request)
-        .then((response) => {
+      (async () => {
+        try {
+          const response = await fetch(request);
+
           if (response.status === 200) {
-            const responseToCache = response.clone();
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(request, responseToCache);
-            });
+            const cache = await caches.open(CACHE_NAME);
+            await cache.put(request, response.clone());
           }
+
           return response;
-        })
-        .catch(() => {
-          return caches.match(request);
-        }),
+        } catch {
+          return await caches.match(request);
+        }
+      })(),
     );
+
     return;
   }
 
@@ -71,18 +77,19 @@ self.addEventListener("fetch", (event) => {
   }
 
   event.respondWith(
-    fetch(request)
-      .then((response) => {
+    (async () => {
+      try {
+        const response = await fetch(request);
+
         if (response.status === 200) {
-          const responseToCache = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, responseToCache);
-          });
+          const cache = await caches.open(CACHE_NAME);
+          await cache.put(request, response.clone());
         }
+
         return response;
-      })
-      .catch(() => {
-        return caches.match(request);
-      }),
+      } catch {
+        return await caches.match(request);
+      }
+    })(),
   );
 });
